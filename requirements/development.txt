@@ -1,0 +1,12 @@
+asgiref==3.11.0
+Django==6.0.1
+django-debug-toolbar==6.1.0
+django-extensions==4.1
+django-schema-viewer==0.5.3
+django-stubs==5.2.8
+django-stubs-ext==5.2.8
+python-decouple==3.8
+sqlparse==0.5.5
+types-PyYAML==6.0.12.20250915
+typing_extensions==4.15.0
+tzdata==2025.3
