@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Folder id="results">
+	<name>Empresas no Ceará</name>
+	<Placemark id="1.2.1">
+		<name>LUSA DISTRIBUIDORA</name>
+		<address>R. Basílio Viêira Carneiro, 109 - BOAVIAGINHA, Boa Viagem - CE, 63870-000</address>
+		<phoneNumber>(88) 99699-5383</phoneNumber>
+		<snippet>R. Basílio Viêira Carneiro, 109 - BOAVIAGINHA, Boa Viagem - CE, 63870-000</snippet>
+		<description><![CDATA[<!DOCTYPE html><html><head></head><body><script type="text/javascript">window.location.href="https://www.google.com/earth/rpc/entity?lat=-9.5986&lng=-54.82340000000001&fid=0x7bde9563a0a3efd:0x5eac736fbf99873e&hl=pt-BR&gl=br&client=earth-client&cv=7.3.6.10441&useragent=GoogleEarth/7.3.6.10441(Windows;Microsoft Windows (6.2.9200.0);pt;kml:2.2;client:Pro;type:default)";</script></body></html>]]></description>
+		<styleUrl>#listing_A</styleUrl>
+		<ExtendedData>
+			<Data name="placepageUri">
+				<value>https://www.google.com/earth/rpc/entity?lat=-9.5986&amp;lng=-54.82340000000001&amp;fid=0x7bde9563a0a3efd:0x5eac736fbf99873e&amp;hl=pt-BR&amp;gl=br&amp;client=earth-client&amp;cv=7.3.6.10441&amp;useragent=GoogleEarth/7.3.6.10441(Windows;Microsoft Windows (6.2.9200.0);pt;kml:2.2;client:Pro;type:default)</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>-39.7285384,-5.1194416,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1.3.1">
+		<name>BP Ceará</name>
+		<address>R. Jurandir Ferreira, 201 - Conj. Esperanca, Quixeramobim - CE, 63800-000</address>
+		<phoneNumber>(51) 2111-1311</phoneNumber>
+		<snippet>R. Jurandir Ferreira, 201 - Conj. Esperanca, Quixeramobim - CE, 63800-000</snippet>
+		<description><![CDATA[<!DOCTYPE html><html><head></head><body><script type="text/javascript">window.location.href="https://www.google.com/earth/rpc/entity?lat=-9.5986&lng=-54.82340000000001&fid=0x7bc3570935526cb:0x76704e9f48d53b6&hl=pt-BR&gl=br&client=earth-client&cv=7.3.6.10441&useragent=GoogleEarth/7.3.6.10441(Windows;Microsoft Windows (6.2.9200.0);pt;kml:2.2;client:Pro;type:default)";</script></body></html>]]></description>
+		<styleUrl>#listing_B</styleUrl>
+		<ExtendedData>
+			<Data name="placepageUri">
+				<value>https://www.google.com/earth/rpc/entity?lat=-9.5986&amp;lng=-54.82340000000001&amp;fid=0x7bc3570935526cb:0x76704e9f48d53b6&amp;hl=pt-BR&amp;gl=br&amp;client=earth-client&amp;cv=7.3.6.10441&amp;useragent=GoogleEarth/7.3.6.10441(Windows;Microsoft Windows (6.2.9200.0);pt;kml:2.2;client:Pro;type:default)</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>-39.2821858,-5.1880893,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1.4.1">
+		<name>R_Apostas_Esportivas</name>
+		<address>R. Vinte e Seis de Junho, 513 - Centro, Boa Viagem - CE, 63870-000</address>
+		<snippet>R. Vinte e Seis de Junho, 513 - Centro, Boa Viagem - CE, 63870-000</snippet>
+		<description><![CDATA[<!DOCTYPE html><html><head></head><body><script type="text/javascript">window.location.href="https://www.google.com/earth/rpc/entity?lat=-9.5986&lng=-54.82340000000001&fid=0x7bde95cc5ec2b01:0x5cf03537ff6523dc&hl=pt-BR&gl=br&client=earth-client&cv=7.3.6.10441&useragent=GoogleEarth/7.3.6.10441(Windows;Microsoft Windows (6.2.9200.0);pt;kml:2.2;client:Pro;type:default)";</script></body></html>]]></description>
+		<styleUrl>#listing_C</styleUrl>
+		<ExtendedData>
+			<Data name="placepageUri">
+				<value>https://www.google.com/earth/rpc/entity?lat=-9.5986&amp;lng=-54.82340000000001&amp;fid=0x7bde95cc5ec2b01:0x5cf03537ff6523dc&amp;hl=pt-BR&amp;gl=br&amp;client=earth-client&amp;cv=7.3.6.10441&amp;useragent=GoogleEarth/7.3.6.10441(Windows;Microsoft Windows (6.2.9200.0);pt;kml:2.2;client:Pro;type:default)</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>-39.7318929,-5.1249182,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1.5.1">
+		<name>Natural Ions Ceará</name>
+		<address>Mousa Brasil, Fortaleza - CE</address>
+		<phoneNumber>(83) 98754-0853</phoneNumber>
+		<snippet>Mousa Brasil, Fortaleza - CE</snippet>
+		<description><![CDATA[<!DOCTYPE html><html><head></head><body><script type="text/javascript">window.location.href="https://www.google.com/earth/rpc/entity?lat=-9.5986&lng=-54.82340000000001&fid=0x7c749b7995536e1:0xe4a738e25e6acebc&hl=pt-BR&gl=br&client=earth-client&cv=7.3.6.10441&useragent=GoogleEarth/7.3.6.10441(Windows;Microsoft Windows (6.2.9200.0);pt;kml:2.2;client:Pro;type:default)";</script></body></html>]]></description>
+		<styleUrl>#listing_D</styleUrl>
+		<ExtendedData>
+			<Data name="placepageUri">
+				<value>https://www.google.com/earth/rpc/entity?lat=-9.5986&amp;lng=-54.82340000000001&amp;fid=0x7c749b7995536e1:0xe4a738e25e6acebc&amp;hl=pt-BR&amp;gl=br&amp;client=earth-client&amp;cv=7.3.6.10441&amp;useragent=GoogleEarth/7.3.6.10441(Windows;Microsoft Windows (6.2.9200.0);pt;kml:2.2;client:Pro;type:default)</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>-38.5392455,-3.7184492,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1.6.1">
+		<name>Distribuidora Ruty</name>
+		<address>R. Dr. Sólon Ximenes Aragão - Floresta, Boa Viagem - CE, 63870-000</address>
+		<phoneNumber>(88) 3427-2001</phoneNumber>
+		<snippet>R. Dr. Sólon Ximenes Aragão - Floresta, Boa Viagem - CE, 63870-000</snippet>
+		<description><![CDATA[<!DOCTYPE html><html><head></head><body><script type="text/javascript">window.location.href="https://www.google.com/earth/rpc/entity?lat=-9.5986&lng=-54.82340000000001&fid=0x7bde9365cf060e3:0x34a8f41349905fe1&hl=pt-BR&gl=br&client=earth-client&cv=7.3.6.10441&useragent=GoogleEarth/7.3.6.10441(Windows;Microsoft Windows (6.2.9200.0);pt;kml:2.2;client:Pro;type:default)";</script></body></html>]]></description>
+		<styleUrl>#listing_E</styleUrl>
+		<ExtendedData>
+			<Data name="placepageUri">
+				<value>https://www.google.com/earth/rpc/entity?lat=-9.5986&amp;lng=-54.82340000000001&amp;fid=0x7bde9365cf060e3:0x34a8f41349905fe1&amp;hl=pt-BR&amp;gl=br&amp;client=earth-client&amp;cv=7.3.6.10441&amp;useragent=GoogleEarth/7.3.6.10441(Windows;Microsoft Windows (6.2.9200.0);pt;kml:2.2;client:Pro;type:default)</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>-39.7233183,-5.1151555,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1.7.1">
+		<name>Rochelle Plasticos</name>
+		<address>R. Agronomando Rangel, 558 - Centro, Boa Viagem - CE, 63870-000</address>
+		<phoneNumber>(88) 3427-2221</phoneNumber>
+		<snippet>R. Agronomando Rangel, 558 - Centro, Boa Viagem - CE, 63870-000</snippet>
+		<description><![CDATA[<!DOCTYPE html><html><head></head><body><script type="text/javascript">window.location.href="https://www.google.com/earth/rpc/entity?lat=-9.5986&lng=-54.82340000000001&fid=0x7bde94dc7996079:0x7fd97f73e745521e&hl=pt-BR&gl=br&client=earth-client&cv=7.3.6.10441&useragent=GoogleEarth/7.3.6.10441(Windows;Microsoft Windows (6.2.9200.0);pt;kml:2.2;client:Pro;type:default)";</script></body></html>]]></description>
+		<styleUrl>#listing_F</styleUrl>
+		<ExtendedData>
+			<Data name="placepageUri">
+				<value>https://www.google.com/earth/rpc/entity?lat=-9.5986&amp;lng=-54.82340000000001&amp;fid=0x7bde94dc7996079:0x7fd97f73e745521e&amp;hl=pt-BR&amp;gl=br&amp;client=earth-client&amp;cv=7.3.6.10441&amp;useragent=GoogleEarth/7.3.6.10441(Windows;Microsoft Windows (6.2.9200.0);pt;kml:2.2;client:Pro;type:default)</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>-39.73040049999999,-5.1245768,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1.8.1">
+		<name>EFICAZ INDUSTRIA E COMERCIO DE PRODUTOS DE LIMPEZA LTDA</name>
+		<address>R. José Natal de Araújo, 2045 - Floresta, Boa Viagem - CE, 63870-000</address>
+		<phoneNumber>(88) 99962-4467</phoneNumber>
+		<snippet>R. José Natal de Araújo, 2045 - Floresta, Boa Viagem - CE, 63870-000</snippet>
+		<description><![CDATA[<!DOCTYPE html><html><head></head><body><script type="text/javascript">window.location.href="https://www.google.com/earth/rpc/entity?lat=-9.5986&lng=-54.82340000000001&fid=0x7bde9fd062021ff:0xf01ee7f4d0082a94&hl=pt-BR&gl=br&client=earth-client&cv=7.3.6.10441&useragent=GoogleEarth/7.3.6.10441(Windows;Microsoft Windows (6.2.9200.0);pt;kml:2.2;client:Pro;type:default)";</script></body></html>]]></description>
+		<styleUrl>#listing_G</styleUrl>
+		<ExtendedData>
+			<Data name="placepageUri">
+				<value>https://www.google.com/earth/rpc/entity?lat=-9.5986&amp;lng=-54.82340000000001&amp;fid=0x7bde9fd062021ff:0xf01ee7f4d0082a94&amp;hl=pt-BR&amp;gl=br&amp;client=earth-client&amp;cv=7.3.6.10441&amp;useragent=GoogleEarth/7.3.6.10441(Windows;Microsoft Windows (6.2.9200.0);pt;kml:2.2;client:Pro;type:default)</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>-39.714193,-5.0995892,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1.9.1">
+		<name>Industria de Embalagens Horizonte</name>
+		<address>Av. Juarez Correia Lima, 655 - Distrito Industrial, Horizonte - CE, 62884-975</address>
+		<phoneNumber>(85) 2130-0484</phoneNumber>
+		<snippet>Av. Juarez Correia Lima, 655 - Distrito Industrial, Horizonte - CE, 62884-975</snippet>
+		<description><![CDATA[<!DOCTYPE html><html><head></head><body><script type="text/javascript">window.location.href="https://www.google.com/earth/rpc/entity?lat=-9.5986&lng=-54.82340000000001&fid=0x7b8bb6ea8dcd075:0x4431d98cadadc5b8&hl=pt-BR&gl=br&client=earth-client&cv=7.3.6.10441&useragent=GoogleEarth/7.3.6.10441(Windows;Microsoft Windows (6.2.9200.0);pt;kml:2.2;client:Pro;type:default)";</script></body></html>]]></description>
+		<styleUrl>#listing_H</styleUrl>
+		<ExtendedData>
+			<Data name="placepageUri">
+				<value>https://www.google.com/earth/rpc/entity?lat=-9.5986&amp;lng=-54.82340000000001&amp;fid=0x7b8bb6ea8dcd075:0x4431d98cadadc5b8&amp;hl=pt-BR&amp;gl=br&amp;client=earth-client&amp;cv=7.3.6.10441&amp;useragent=GoogleEarth/7.3.6.10441(Windows;Microsoft Windows (6.2.9200.0);pt;kml:2.2;client:Pro;type:default)</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>-38.4831504,-4.1264485,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1.10.1">
+		<name>SP Indústria e Distribuidora de Petróleo</name>
+		<address>Av. Leite Barbosa, 191 - Mucuripe, Fortaleza - CE, 60180-420</address>
+		<phoneNumber>(85) 3052-4141</phoneNumber>
+		<snippet>Av. Leite Barbosa, 191 - Mucuripe, Fortaleza - CE, 60180-420</snippet>
+		<description><![CDATA[<!DOCTYPE html><html><head></head><body><script type="text/javascript">window.location.href="https://www.google.com/earth/rpc/entity?lat=-9.5986&lng=-54.82340000000001&fid=0x7c747f1df40ed71:0x9922dcc6a2102116&hl=pt-BR&gl=br&client=earth-client&cv=7.3.6.10441&useragent=GoogleEarth/7.3.6.10441(Windows;Microsoft Windows (6.2.9200.0);pt;kml:2.2;client:Pro;type:default)";</script></body></html>]]></description>
+		<styleUrl>#listing_I</styleUrl>
+		<ExtendedData>
+			<Data name="placepageUri">
+				<value>https://www.google.com/earth/rpc/entity?lat=-9.5986&amp;lng=-54.82340000000001&amp;fid=0x7c747f1df40ed71:0x9922dcc6a2102116&amp;hl=pt-BR&amp;gl=br&amp;client=earth-client&amp;cv=7.3.6.10441&amp;useragent=GoogleEarth/7.3.6.10441(Windows;Microsoft Windows (6.2.9200.0);pt;kml:2.2;client:Pro;type:default)</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>-38.4707027,-3.7126885,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1.11.1">
+		<name>Plastec</name>
+		<address>Rodovia Coronel 040 - s/n SN KM 12 - 07, CE</address>
+		<phoneNumber>(85) 4118-0144</phoneNumber>
+		<snippet>Rodovia Coronel 040 - s/n SN KM 12 - 07, CE</snippet>
+		<description><![CDATA[<!DOCTYPE html><html><head></head><body><script type="text/javascript">window.location.href="https://www.google.com/earth/rpc/entity?lat=-9.5986&lng=-54.82340000000001&fid=0x7c75c1b4eb7ae9b:0x634ed5a1f783cc56&hl=pt-BR&gl=br&client=earth-client&cv=7.3.6.10441&useragent=GoogleEarth/7.3.6.10441(Windows;Microsoft Windows (6.2.9200.0);pt;kml:2.2;client:Pro;type:default)";</script></body></html>]]></description>
+		<styleUrl>#listing_J</styleUrl>
+		<ExtendedData>
+			<Data name="placepageUri">
+				<value>https://www.google.com/earth/rpc/entity?lat=-9.5986&amp;lng=-54.82340000000001&amp;fid=0x7c75c1b4eb7ae9b:0x634ed5a1f783cc56&amp;hl=pt-BR&amp;gl=br&amp;client=earth-client&amp;cv=7.3.6.10441&amp;useragent=GoogleEarth/7.3.6.10441(Windows;Microsoft Windows (6.2.9200.0);pt;kml:2.2;client:Pro;type:default)</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>-38.3899637,-3.8997317,0</coordinates>
+		</Point>
+	</Placemark>
+	<atom:link rel="app" href="https://www.google.com/earth/about/versions/#earth-pro" title="Google Earth Pro 7.3.6.10441"></atom:link>
+</Folder>
+</kml>
