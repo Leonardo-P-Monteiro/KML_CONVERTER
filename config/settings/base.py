@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/6.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
-#TODO We need make the rest of settings of extensios.
+
+
 from pathlib import Path
 
 from decouple import config
@@ -38,10 +39,13 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     "django_extensions",
+    "corsheaders",
+
 ]
 
 LOCAL_APPS = [
-    ...,
+    "apps.core",
+    "apps.converter",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -49,6 +53,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -110,11 +115,71 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = "/static/"
+STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "static"
 STATICFILE_DIRS = [
     BASE_DIR / "templates",
 ]
 
-MEDIA_URL = "/media/"
+MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+
+# SETTINGS TO DJANGO-EXTENSIONS
+SHELL_PLUS_PRINT_SQL = True
+
+
+# SETTINGS TO CORS (Cross-Origin Resource Sharing)
+
+## On this setting you place your domain to allow it server your system.
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8000",
+    "https://meu-site-producao.com",
+]
+
+# SETTINGS OF SECURITY ADDITIONAL
+
+# 1. Proteção contra XSS (Cross-Site Scripting) em navegadores legados
+# Habilita o filtro XSS do navegador e instrui a bloquear a página se um ataque for detectado.
+# Header: X-XSS-Protection: 1; mode=block
+SECURE_BROWSER_XSS_FILTER = True
+
+# 2. Prevenção de MIME Type Sniffing
+# Impede o navegador de "adivinhar" o tipo de conteúdo. Se o servidor diz que é texto, é texto.
+# Header: X-Content-Type-Options: nosniff
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# 3. Proteção contra Clickjacking
+# Impede que seu site seja renderizado dentro de um iframe em outro site.
+# Header: X-Frame-Options: DENY
+X_FRAME_OPTIONS = "DENY"
+
+# 4. Redirecionamento SSL (Força bruta para HTTPS)
+# Se a requisição chegar na porta 80 (HTTP), o Django retorna um
+# 301 (Permanent Redirect) para a porta 443 (HTTPS).
+SECURE_SSL_REDIRECT = True
+
+# 5. Proteção de Cookies de Sessão
+# O cookie de sessionid só será enviado se a conexão for HTTPS.
+# Evita roubo de sessão em redes abertas.
+SESSION_COOKIE_SECURE = True
+
+# 6. Proteção de Cookies CSRF
+# O token CSRF só será enviado via HTTPS.
+CSRF_COOKIE_SECURE = True
+
+# --- HTTP Strict Transport Security (HSTS) ---
+# MECANISMO CRÍTICO: Uma vez ativado e acessado, o navegador lembrará de SÓ usar HTTPS.
+
+# 7. Duração do HSTS
+# Define quanto tempo (em segundos) o navegador deve lembrar de forçar HTTPS.
+# 31536000 segundos = 1 ano.
+# Header: Strict-Transport-Security: max-age=31536000; ...
+SECURE_HSTS_SECONDS = 31536000
+
+# 11. Política de Referência
+# Controla quanta informação de referência (URL de onde o usuário veio) é
+# enviada ao clicar em links.
+# 'same-origin': Envia o referer completo para o mesmo site,
+# mas remove para sites externos.
+SECURE_REFERRER_POLICY = "same-origin"

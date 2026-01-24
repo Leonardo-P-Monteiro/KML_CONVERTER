@@ -1,5 +1,9 @@
-from .base import *  # noqa: F403
-from .base import BASE_DIR, MIDDLEWARE, THIRD_PARTY_APPS  # Only to shutout linter ruff
+from .base import *  # noqa: F403 # Only to shutout linter ruff
+from .base import (
+    BASE_DIR,
+    INSTALLED_APPS,
+    MIDDLEWARE,
+)
 
 DEBUG = True
 
@@ -16,10 +20,20 @@ DATABASES = {
 }
 
 # DEVELOPMENT-SPECIFIC APPS
-THIRD_PARTY_APPS += [
+
+# INSTALLED_APPS += THIRD_PARTY_APPS
+
+INSTALLED_APPS += [
     "debug_toolbar",
 ]
 
+
 MIDDLEWARE += [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+]
+
+# SETTINGS OF DJANGO TOOLBAR
+INTERNAL_IPS = [
+    "127.0.0.1",
+    "localhost",
 ]
