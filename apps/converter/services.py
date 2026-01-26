@@ -4,18 +4,27 @@ from bs4 import BeautifulSoup
 PATH_FILE_KML = "docs\\kml_exemple.kml"
 PATH_FILE_XLSX = 'docs\\output.xlsx'
 
-def processar_kml_para_excel(caminho_arquivo_kml, caminho_saida_excel):
+def kml_to_xlsx(path_kml_file, output_xlsx_file):
     """
-    Explicação.
+    Explanation.
 
-    Lê um arquivo KML exportado do Google Earth, extrai dados de empresas
-    e salva em um arquivo Excel.
+    Read a KML file exported from Google Earth, extract company data,
+    and save it to an Excel file.
+
+    Args:
+        path_kml_file (str): Path to access the KML file.
+        output_xlsx_file (str): Path where the xlsx file will save.
+
+    Returns:
+        None: The function saves the file straightforward on hard disc and
+        not return any value.
+
     """
-    print(f"--- Iniciando processamento de: {caminho_arquivo_kml} ---")
+    print(f"--- Iniciando processamento de: {path_kml_file} ---")
 
     # 1. Ler o arquivo KML
     try:
-        with open(caminho_arquivo_kml, encoding="utf-8") as f: # noqa: PTH123
+        with open(path_kml_file, encoding="utf-8") as f: # noqa: PTH123
             conteudo_kml = f.read()
     except FileNotFoundError:
         print("Erro: Arquivo KML não encontrado.")
@@ -60,17 +69,6 @@ def processar_kml_para_excel(caminho_arquivo_kml, caminho_saida_excel):
                     break
         dados_empresa["Link do Site"] = link
 
-        # (Opcional) Extração de Coordenadas para enriquecer os dados
-        # tag_point = placemark.find("Point")
-        # if tag_point:
-        #     coords = tag_point.find("coordinates")
-        #     if coords:
-        #         # KML é long,lat,alt
-        #         xyz = coords.text.strip().split(",")
-        #         if len(xyz) >= 2:
-        #             dados_empresa["Longitude"] = xyz[0]
-        #             dados_empresa["Latitude"] = xyz[1]
-
         lista_empresas.append(dados_empresa)
 
     # 4. Criar DataFrame Pandas
@@ -78,8 +76,8 @@ def processar_kml_para_excel(caminho_arquivo_kml, caminho_saida_excel):
 
     # 5. Salvar para Excel
     try:
-        df.to_excel(caminho_saida_excel, index=False, engine="openpyxl")
-        print(f"--- Sucesso! Arquivo gerado: {caminho_saida_excel} ---")
+        df.to_excel(output_xlsx_file, index=False, engine="openpyxl")
+        print(f"--- Sucesso! Arquivo gerado: {output_xlsx_file} ---")
         print(df.head())  # Mostra as primeiras linhas para conferência
     except Exception as e: # noqa: BLE001
         print(f"Erro ao salvar Excel: {e}")
@@ -93,4 +91,4 @@ if __name__ == "__main__":
     NOME_DO_ARQUIVO_ENTRADA = PATH_FILE_KML
     NOME_DO_ARQUIVO_SAIDA = PATH_FILE_XLSX
 
-    processar_kml_para_excel(NOME_DO_ARQUIVO_ENTRADA, NOME_DO_ARQUIVO_SAIDA)
+    kml_to_xlsx(NOME_DO_ARQUIVO_ENTRADA, NOME_DO_ARQUIVO_SAIDA)
