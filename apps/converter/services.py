@@ -1,46 +1,96 @@
 import pandas as pd
-from fastkml import kml
-import re
-import os
+from bs4 import BeautifulSoup
 
+PATH_FILE_KML = "docs\\kml_exemple.kml"
+PATH_FILE_XLSX = 'docs\\output.xlsx'
 
-def ler_kml_como_texto(caminho_do_arquivo):
+def processar_kml_para_excel(caminho_arquivo_kml, caminho_saida_excel):
     """
+    Explicação.
 
-    Abre um arquivo KML e retorna seu conteúdo como uma string.
+    Lê um arquivo KML exportado do Google Earth, extrai dados de empresas
+    e salva em um arquivo Excel.
+    """
+    print(f"--- Iniciando processamento de: {caminho_arquivo_kml} ---")
 
-    """  # noqa: D200
+    # 1. Ler o arquivo KML
     try:
-        with open(caminho_do_arquivo, encoding="utf-8") as arquivo:
-            conteudo = arquivo.read()
-        return conteudo
+        with open(caminho_arquivo_kml, encoding="utf-8") as f: # noqa: PTH123
+            conteudo_kml = f.read()
     except FileNotFoundError:
-        return "Erro: Arquivo não encontrado."
-    except Exception as e:
-        return f"Erro ao ler o arquivo: {e}"
+        print("Erro: Arquivo KML não encontrado.")
+        return
+
+    # 2. Parsear com BeautifulSoup usando o parser XML (lxml)
+    soup = BeautifulSoup(conteudo_kml, "xml")
+
+    # Lista para armazenar os dados extraídos
+    lista_empresas = []
+
+    # 3. Encontrar todos os Placemarks (cada empresa)
+    placemarks = soup.find_all("Placemark")
+    print(f"Encontrados {len(placemarks)} registros para processar.")
+
+    for placemark in placemarks:
+        dados_empresa = {}
+
+        # --- Extração do Nome ---
+        tag_name = placemark.find("name")
+        dados_empresa["Nome"] = tag_name.text.strip() if tag_name else "N/A"
+
+        # --- Extração do Endereço ---
+        tag_address = placemark.find("address")
+        dados_empresa["Endereço"] = tag_address.text.strip() if tag_address else "N/A"
+
+        # --- Extração do Telefone ---
+        # Nota: phoneNumber não é padrão KML, mas existe no seu arquivo
+        tag_phone = placemark.find("phoneNumber")
+        dados_empresa["Telefone"] = tag_phone.text.strip() if tag_phone else "N/A"
+
+        # --- Extração do Link (Site/URI) ---
+        # A URL está dentro de ExtendedData -> Data name="placepageUri" -> value
+        link = "N/A"
+        extended_data = placemark.find("ExtendedData")
+        if extended_data:
+            data_tags = extended_data.find_all("Data", attrs={"name": "placepageUri"})
+            for data in data_tags:
+                val = data.find("value")
+                if val:
+                    link = val.text.strip()
+                    break
+        dados_empresa["Link do Site"] = link
+
+        # (Opcional) Extração de Coordenadas para enriquecer os dados
+        # tag_point = placemark.find("Point")
+        # if tag_point:
+        #     coords = tag_point.find("coordinates")
+        #     if coords:
+        #         # KML é long,lat,alt
+        #         xyz = coords.text.strip().split(",")
+        #         if len(xyz) >= 2:
+        #             dados_empresa["Longitude"] = xyz[0]
+        #             dados_empresa["Latitude"] = xyz[1]
+
+        lista_empresas.append(dados_empresa)
+
+    # 4. Criar DataFrame Pandas
+    df = pd.DataFrame(lista_empresas)
+
+    # 5. Salvar para Excel
+    try:
+        df.to_excel(caminho_saida_excel, index=False, engine="openpyxl")
+        print(f"--- Sucesso! Arquivo gerado: {caminho_saida_excel} ---")
+        print(df.head())  # Mostra as primeiras linhas para conferência
+    except Exception as e: # noqa: BLE001
+        print(f"Erro ao salvar Excel: {e}")
 
 
-# Exemplo de uso:
-texto_kml = ler_kml_como_texto('C:\\Users\\leona\\Documents\\KML_CONVERTER\\KML_CONVERTER\\docs\\kml_exemple.kml')
-print(texto_kml)
+# --- Execução ---
+# Substitua 'seu_arquivo.kml' pelo nome real do seu arquivo
+if __name__ == "__main__":
+    # Cria um arquivo dummy para teste baseado no seu exemplo (opcional, se você já tiver o arquivo)
+    # Mas assumindo que você tem o arquivo físico:
+    NOME_DO_ARQUIVO_ENTRADA = PATH_FILE_KML
+    NOME_DO_ARQUIVO_SAIDA = PATH_FILE_XLSX
 
-
-def mapear_telefones_regex(conteudo_raw):
-    """
-    Cria um dicionário {Nome_Empresa: Telefone} varrendo o arquivo bruto.
-    Necessário pois <phoneNumber> não é uma tag padrão do KML e o FastKML
-    pode ignorá-la durante o parse.
-    """  # noqa: D205
-    mapa_telefones = {}
-    # Procura por blocos que tenham <name> seguido (eventualmente) de <phoneNumber>
-    # O padrão considera quebras de linha e outros caracteres entre as tags
-    padrao = r'<name>(.*?)</name>.*?<phoneNumber>(.*?)</phoneNumber>'
-
-    matches = re.findall(padrao, conteudo_raw, re.DOTALL)
-
-    for nome, telefone in matches:
-        # Limpa espaços extras e adiciona ao mapa
-        mapa_telefones[nome.strip()] = telefone.strip()
-
-    return mapa_telefones
-
+    processar_kml_para_excel(NOME_DO_ARQUIVO_ENTRADA, NOME_DO_ARQUIVO_SAIDA)
