@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversor KML para Excel</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome para ícones -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        /* Paleta de Cores da Empresa */
+        --primary-dark: #383842;
+        --accent-orange: #fa5a1d;
+        --grey-dark: #606060;
+        --grey-medium: #808080;
+        --grey-light: #999999;
+        --grey-lighter: #b7b7b9;
+        --bg-light: #dddfe2;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: var(--bg-light);
+        color: var(--primary-dark);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      /* Navbar Styling */
+      .navbar {
+        background-color: var(--primary-dark);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+      }
+
+      .navbar-brand {
+        color: white !important;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .company-logo-placeholder {
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary-dark);
+        font-weight: bold;
+        font-size: 0.8rem;
+      }
+
+      /* Main Content Styling */
+      .main-container {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1rem;
+      }
+
+      .card-custom {
+        background: white;
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(56, 56, 66, 0.1);
+        width: 100%;
+        max-width: 900px;
+        overflow: hidden;
+        margin: 0 auto; /* Adicionado para centralizar horizontalmente */
+      }
+
+      .card-header-custom {
+        background-color: white;
+        border-bottom: 2px solid var(--bg-light);
+        padding: 1.5rem 2rem;
+      }
+
+      .card-header-custom h2 {
+        color: var(--primary-dark);
+        font-weight: 700;
+        margin: 0;
+        font-size: 1.5rem;
+      }
+
+      .card-body-custom {
+        padding: 2rem;
+      }
+
+      textarea.form-control {
+        border: 2px solid var(--grey-lighter);
+        background-color: #f8f9fa;
+        color: var(--primary-dark);
+        font-family: "Courier New", Courier, monospace; /* Monospace para código */
+        font-size: 0.9rem;
+        resize: vertical;
+        transition: all 0.3s ease;
+      }
+
+      textarea.form-control:focus {
+        border-color: var(--accent-orange);
+        box-shadow: 0 0 0 0.2rem rgba(250, 90, 29, 0.15);
+        outline: none;
+      }
+
+      .btn-custom {
+        background-color: var(--accent-orange);
+        color: white;
+        font-weight: 600;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .btn-custom:hover {
+        background-color: #d94912; /* Um pouco mais escuro que o original */
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(250, 90, 29, 0.3);
+      }
+
+      .btn-custom:active {
+        transform: translateY(0);
+      }
+
+      .btn-custom:disabled {
+        background-color: var(--grey-lighter);
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      /* Instructions Styling */
+      .instructions {
+        color: var(--grey-dark);
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Footer Styling */
+      footer {
+        background-color: var(--primary-dark);
+        color: var(--grey-lighter);
+        padding: 2rem 0;
+        margin-top: auto;
+      }
+
+      footer h5 {
+        color: white;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      footer a {
+        color: var(--accent-orange);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      footer a:hover {
+        color: white;
+        text-decoration: underline;
+      }
+
+      /* Social Icons Styling */
+      .social-links a {
+        font-size: 1.5rem;
+        margin-right: 15px;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        text-decoration: none;
+        transform: translateY(-3px);
+        color: white;
+      }
+
+      .footer-divider {
+        border-top: 1px solid var(--grey-dark);
+        margin: 1.5rem 0;
+      }
+
+      /* Utility */
+      .text-accent {
+        color: var(--accent-orange);
+      }
+
+      /* Spinner */
+      .spinner-border {
+        width: 1.2rem;
+        height: 1.2rem;
+      }
+      /* LOGO CLASS */
+      .logo-custom {
+        width: 300px; /* Altere para o valor que você desejar */
+        height: auto;
+        display: block; /* Opcional: remove espaços vazios abaixo da imagem */
+      }
+
+      .logo-small {
+        width: 50px; /* Altere para o valor que você desejar */
+        height: auto;
+        display: block; /* Opcional: remove espaços vazios abaixo da imagem */
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- Navegação / Topo -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <!-- Espaço para LOGO -->
+          <img src="logo.png" alt="LeepCode" class="logo-custom" />
+          <!-- <div class="company-logo-placeholder">
+                    LOGO
+                </div>
+                <span>Nome da Empresa</span> -->
+        </a>
+      </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <div class="main-container">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card-custom">
+              <div
+                class="card-header-custom d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <h2>Conversor KML para Excel</h2>
+                  <p class="text-muted mb-0 mt-1" style="font-size: 0.9rem">
+                    Transforme estruturas de dados geográficos em planilhas.
+                  </p>
+                </div>
+                <!-- <i class="fas fa-file-excel text-accent fa-2x"></i> -->
+                <img src="Logo_small.png" alt="LeepCode" class="logo-small">
+              </div>
+
+              <div class="card-body-custom">
+                <form id="kmlForm">
+                  <div class="mb-4">
+                    <label
+                      for="kmlInput"
+                      class="form-label fw-bold text-secondary"
+                    >
+                      <i class="fas fa-code me-2"></i>Cole sua estrutura KML
+                      abaixo:
+                    </label>
+                    <textarea
+                      class="form-control"
+                      id="kmlInput"
+                      rows="10"
+                      placeholder="<?xml version='1.0' encoding='UTF-8'?>&#10;<kml xmlns='http://www.opengis.net/kml/2.2'>&#10;  <Document>...</Document>&#10;</kml>"
+                      required
+                    ></textarea>
+                    <div class="form-text text-muted">
+                      Certifique-se de que o código KML esteja bem formatado.
+                    </div>
+                  </div>
+
+                  <div id="alertArea"></div>
+
+                  <div class="row">
+                    <div class="col-md-4 offset-md-4">
+                      <button
+                        type="submit"
+                        class="btn btn-custom"
+                        id="convertBtn"
+                      >
+                        <span id="btnText">Gerar Excel</span>
+                        <span id="btnLoader" class="d-none">
+                          <span
+                            class="spinner-border spinner-border-sm"
+                            role="status"
+                            aria-hidden="true"
+                          ></span>
+                          Processando...
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <!-- Coluna de Contato -->
+          <div class="col-md-6 mb-4 mb-md-0">
+            <h5>Contato & Suporte</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2 d-flex align-items-center">
+                <i class="fas fa-envelope fa-fw me-2"></i>
+                <span>contato@leepcode.com.br</span>
+              </li>
+              <li class="mb-2 d-flex align-items-center">
+                <i class="fas fa-phone fa-fw me-2"></i>
+                <span>(85) 99906-8226</span>
+              </li>
+              <li class="mb-2 d-flex align-items-start">
+                <i class="fas fa-map-marker-alt fa-fw me-2 mt-1"></i>
+                <span>Santa Quitéria, Ceará</span>
+              </li>
+            </ul>
+
+            <div class="mt-4">
+              <h5 class="mb-3">Redes Sociais</h5>
+              <div class="social-links">
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  title="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="https://linkedin.com" target="_blank" title="LinkedIn"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+                <a
+                  href="https://wa.me/5585999068226"
+                  target="_blank"
+                  title="WhatsApp"
+                  ><i class="fab fa-whatsapp"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coluna de Instruções -->
+          <div class="col-md-6 text-md-end text-start">
+            <h5>Como usar a ferramenta?</h5>
+            <p class="small">
+              Acesse nosso tutorial completo no YouTube para aprender a extrair
+              os dados KML corretamente.
+            </p>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              class="btn btn-outline-light btn-sm mt-2"
+            >
+              <i class="fab fa-youtube me-2" style="color: red"></i> Assistir
+              Tutorial
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="row">
+          <div class="col-12 text-center small text-secondary">
+            &copy; 2024 Sua Empresa. Todos os direitos reservados.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script de Lógica -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("kmlForm");
+        const convertBtn = document.getElementById("convertBtn");
+        const btnText = document.getElementById("btnText");
+        const btnLoader = document.getElementById("btnLoader");
+        const kmlInput = document.getElementById("kmlInput");
+        const alertArea = document.getElementById("alertArea");
+
+        // Função auxiliar para pegar o CSRF Token (Padrão Django)
+        function getCookie(name) {
+          let cookieValue = null;
+          if (document.cookie && document.cookie !== "") {
+            const cookies = document.cookie.split(";");
+            for (let i = 0; i < cookies.length; i++) {
+              const cookie = cookies[i].trim();
+              if (cookie.substring(0, name.length + 1) === name + "=") {
+                cookieValue = decodeURIComponent(
+                  cookie.substring(name.length + 1)
+                );
+                break;
+              }
+            }
+          }
+          return cookieValue;
+        }
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const kmlData = kmlInput.value.trim();
+
+          if (!kmlData) {
+            showAlert("Por favor, insira o código KML.", "danger");
+            return;
+          }
+
+          // UI Loading State
+          setLoading(true);
+          alertArea.innerHTML = "";
+
+          /* INTEGRAÇÃO COM DJANGO:
+                   O código abaixo é um exemplo de como você fará a chamada para seu backend.
+                   Como o backend não existe neste ambiente, simulei uma resposta com setTimeout.
+                */
+
+          // const csrftoken = getCookie('csrftoken');
+
+          // fetch('/seu-endpoint-django/converter/', {
+          //     method: 'POST',
+          //     headers: {
+          //         'Content-Type': 'application/json',
+          //         'X-CSRFToken': csrftoken
+          //     },
+          //     body: JSON.stringify({ kml: kmlData })
+          // })
+          // .then(response => {
+          //      if (response.ok) return response.blob();
+          //      throw new Error('Erro na conversão');
+          // })
+          // .then(blob => {
+          //      // Lógica para baixar o arquivo
+          //      const url = window.URL.createObjectURL(blob);
+          //      const a = document.createElement('a');
+          //      a.href = url;
+          //      a.download = "dados_convertidos.xlsx";
+          //      document.body.appendChild(a);
+          //      a.click();
+          //      a.remove();
+          //      setLoading(false);
+          //      showAlert('Arquivo gerado com sucesso!', 'success');
+          // })
+          // .catch(error => {
+          //      setLoading(false);
+          //      showAlert('Erro ao processar o KML. Verifique a estrutura.', 'danger');
+          // });
+
+          // SIMULAÇÃO (Remova isso quando conectar com o Django)
+          setTimeout(() => {
+            console.log("KML Enviado:", kmlData);
+            setLoading(false);
+            showAlert(
+              "Simulação: Arquivo Excel seria baixado agora.",
+              "success"
+            );
+          }, 2000);
+        });
+
+        function setLoading(isLoading) {
+          if (isLoading) {
+            convertBtn.disabled = true;
+            btnText.classList.add("d-none");
+            btnLoader.classList.remove("d-none");
+          } else {
+            convertBtn.disabled = false;
+            btnText.classList.remove("d-none");
+            btnLoader.classList.add("d-none");
+          }
+        }
+
+        function showAlert(message, type) {
+          alertArea.innerHTML = `
+                    <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                        ${message}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                `;
+        }
+      });
+    </script>
+  </body>
+</html>

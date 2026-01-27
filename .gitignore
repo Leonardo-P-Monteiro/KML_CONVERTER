@@ -9,7 +9,7 @@ cert.key
 cert.crt
 requirements.txt
 db.sqlite3
-
+scripts/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
