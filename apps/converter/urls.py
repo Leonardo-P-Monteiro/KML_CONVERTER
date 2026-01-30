@@ -17,20 +17,10 @@ Including another URLconf
 
 """
 
-from debug_toolbar.toolbar import debug_toolbar_urls
-from django.conf import settings
-from django.conf.urls.static import static
-from django.contrib import admin
-from django.urls import include, path
+from django.urls import path
+
+from apps.converter.views import View_Test
 
 urlpatterns = [
-    path("", include("apps.converter.urls")),
-    path("admin/", admin.site.urls),
+    path("", View_Test.as_view(), name="test_home"),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(
-        settings.MEDIA_URL,
-        document_root=settings.MEDIA_ROOT,
-    )  # Aqui a conf. do servir arquivos de mídia em desenvolvimento.
-    urlpatterns += debug_toolbar_urls()  # Aqui a conf. do Debug Toolbar.
