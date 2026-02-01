@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Scraper{% endblock title %}
+
+{% block content %}
+
+    <div class="main-container">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card-custom">
+              <div
+                class="card-header-custom d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <h2>Conversor KML para Excel</h2>
+                  <p class="text-muted mb-0 mt-1" style="font-size: 0.9rem">
+                    Transforme estruturas de dados geográficos em planilhas.
+                  </p>
+                </div>
+                <a href="https://leonardo-p-monteiro.github.io/LEEPCODE_APRESNTACAO_COMERCIAL/" target='_blank'>
+                    <img src="/media/Logo_small.png" alt="LeepCode" class="logo-small">
+                </a>
+              </div>
+
+              <div class="card-body-custom">
+                <form id="kmlForm">
+                  
+                  <div class="mb-4">
+                    <label
+                      for="kmlInput"
+                      class="form-label fw-bold text-secondary"
+                    >
+                      <i class="fas fa-code me-2"></i>Cole sua estrutura KML
+                      abaixo:
+                    </label>
+                    <textarea
+                      class="form-control"
+                      id="kmlInput"
+                      name="kml_data"
+                      rows="10"
+                      placeholder="<?xml version='1.0' encoding='UTF-8'?>&#10;<kml xmlns='http://www.opengis.net/kml/2.2'>&#10;  <Document>...</Document>&#10;</kml>"
+                      required
+                    ></textarea>
+                    <div class="form-text text-muted">
+                      Certifique-se de que o código KML esteja bem formatado.
+                    </div>
+                  </div>
+
+                  <div id="alertArea"></div>
+
+                  <div class="row">
+                    <div class="col-md-4 offset-md-4">
+                      <button
+                        type="submit"
+                        class="btn btn-custom"
+                        id="convertBtn"
+                      >
+                        <span id="btnText">Gerar Excel</span>
+                        <span id="btnLoader" class="d-none">
+                          <span
+                            class="spinner-border spinner-border-sm"
+                            role="status"
+                            aria-hidden="true"
+                          ></span>
+                          Processando...
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock content %}

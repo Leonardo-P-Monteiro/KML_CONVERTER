@@ -3,10 +3,10 @@ from django.views import View
 
 # Create your views here.
 
-class View_Test(View):
+class ViewTest(View):
 
     def get(self, request, *args, **kwargs):
         return render(
             request,
-            'index.html',
+            'converter/home.html',
         )

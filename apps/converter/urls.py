@@ -19,8 +19,8 @@ Including another URLconf
 
 from django.urls import path
 
-from apps.converter.views import View_Test
+from apps.converter.views import ViewTest
 
 urlpatterns = [
-    path("", View_Test.as_view(), name="test_home"),
+    path("", ViewTest.as_view(), name="test_home"),
 ]
