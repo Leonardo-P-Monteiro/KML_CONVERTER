@@ -1,0 +1,208 @@
+:root {
+  /* Paleta de Cores da Empresa */
+  --primary-dark: #383842;
+  --accent-orange: #fa5a1d;
+  --grey-dark: #606060;
+  --grey-medium: #808080;
+  --grey-light: #999999;
+  --grey-lighter: #b7b7b9;
+  --bg-light: #dddfe2;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--bg-light);
+  color: var(--primary-dark);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: var(--primary-dark);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+}
+
+.navbar-brand {
+  color: white !important;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.company-logo-placeholder {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-dark);
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+/* Main Content Styling */
+.main-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.card-custom {
+  background: white;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(56, 56, 66, 0.1);
+  width: 100%;
+  max-width: 900px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.card-header-custom {
+  background-color: white;
+  border-bottom: 2px solid var(--bg-light);
+  padding: 1.5rem 2rem;
+}
+
+.card-header-custom h2 {
+  color: var(--primary-dark);
+  font-weight: 700;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.card-body-custom {
+  padding: 2rem;
+}
+
+textarea.form-control {
+  border: 2px solid var(--grey-lighter);
+  background-color: #f8f9fa;
+  color: var(--primary-dark);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9rem;
+  resize: vertical;
+  transition: all 0.3s ease;
+}
+
+textarea.form-control:focus {
+  border-color: var(--accent-orange);
+  box-shadow: 0 0 0 0.2rem rgba(250, 90, 29, 0.15);
+  outline: none;
+}
+
+.btn-custom {
+  background-color: var(--accent-orange);
+  color: white;
+  font-weight: 600;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
+
+.btn-custom:hover {
+  background-color: #d94912;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(250, 90, 29, 0.3);
+}
+
+.btn-custom:active {
+  transform: translateY(0);
+}
+
+.btn-custom:disabled {
+  background-color: var(--grey-lighter);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Instructions Styling */
+.instructions {
+  color: var(--grey-dark);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* Footer Styling */
+footer {
+  background-color: var(--primary-dark);
+  color: var(--grey-lighter);
+  padding: 2rem 0;
+  margin-top: auto;
+}
+
+footer h5 {
+  color: white;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+footer a {
+  color: var(--accent-orange);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+footer a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+/* Social Icons Styling */
+.social-links a {
+  font-size: 1.5rem;
+  margin-right: 15px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  text-decoration: none;
+  transform: translateY(-3px);
+  color: white;
+}
+
+.footer-divider {
+  border-top: 1px solid var(--grey-dark);
+  margin: 1.5rem 0;
+}
+
+/* Utility */
+.text-accent {
+  color: var(--accent-orange);
+}
+
+/* Spinner */
+.spinner-border {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+/* LOGO CLASS */
+.logo-custom {
+  width: 300px;
+  height: auto;
+  display: block;
+}
+
+.logo-small {
+  width: 50px;
+  height: auto;
+  display: block;
+}

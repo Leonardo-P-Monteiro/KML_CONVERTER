@@ -183,3 +183,8 @@ SECURE_HSTS_SECONDS = 31536000
 # 'same-origin': Envia o referer completo para o mesmo site,
 # mas remove para sites externos.
 SECURE_REFERRER_POLICY = "same-origin"
+
+# 10. Identificação de Protocolo em Proxy Reverso (CRUCIAL PARA DEPLOY)
+# Se usar Nginx/Heroku/AWS ELB, o SSL termina no balanceador. O Django precisa saber que a requisição original era segura.
+# O Nginx envia o header 'X-Forwarded-Proto': 'https'. O Django confia nisso com esta config:
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

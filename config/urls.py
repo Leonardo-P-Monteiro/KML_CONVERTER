@@ -25,12 +25,14 @@ from django.urls import include, path
 
 urlpatterns = [
     path("", include("apps.converter.urls")),
-    path("admin/", admin.site.urls),
+    path("secret-admin/", admin.site.urls),
 ]
 
 if settings.DEBUG:
+    urlpatterns += [path("admin/", admin.site.urls)]
     urlpatterns += static(
         settings.MEDIA_URL,
         document_root=settings.MEDIA_ROOT,
     )  # Aqui a conf. do servir arquivos de mídia em desenvolvimento.
     urlpatterns += debug_toolbar_urls()  # Aqui a conf. do Debug Toolbar.
+
