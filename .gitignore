@@ -4,7 +4,7 @@ __pycache__
 .env
 cert.key
 cert.crt
-requirements.txt
+# requirements.txt
 db.sqlite3
 
 # Byte-compiled / optimized / DLL files
